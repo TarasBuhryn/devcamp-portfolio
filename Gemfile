@@ -33,3 +33,5 @@ gem 'sprockets-rails'
 gem 'jquery-rails'
 gem 'devcamp_view_tool'
 gem 'petergate'
+gem "font-awesome-rails"
+gem 'kaminari'
