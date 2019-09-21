@@ -35,3 +35,4 @@ gem 'devcamp_view_tool'
 gem 'petergate'
 gem "font-awesome-rails"
 gem 'kaminari'
+gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
