@@ -16,6 +16,11 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-byebug'
+  gem 'rspec-rails', '~> 3.8'
+  gem 'capybara', '>= 2.15'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'shoulda-matchers'
 end
 
 group :development do
