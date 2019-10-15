@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class Topic < ApplicationRecord
-	validates_presence_of :title
+  validates_presence_of :title
 
-	has_many :blogs
+  has_many :blogs
 
-	def self.with_blogs
+  def self.with_blogs
     includes(:blogs).where.not(blogs: { id: nil })
   end
 end

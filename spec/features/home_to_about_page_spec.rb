@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-feature 'redirection from home page to about me page' do
-	scenario "click about me button" do
+feature 'click about me button' do
+	scenario "redirection from home page to about me page" do
 
 		visit root_path
 

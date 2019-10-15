@@ -1,21 +1,23 @@
+# frozen_string_literal: true
+
 class Portfolio < ApplicationRecord
-	has_many :technologies, dependent: :delete_all
+  has_many :technologies, dependent: :delete_all
   accepts_nested_attributes_for :technologies,
-  															allow_destroy: true, 
-                                reject_if: lambda { |attrs| attrs ['name'].blank? }
+                                allow_destroy: true,
+                                reject_if:     ->(attrs) { attrs ['name'].blank? }
 
-	validates_presence_of :title, :body
+  validates_presence_of :title, :body
 
-	mount_uploader :thumb_image, PortfolioUploader
-	mount_uploader :main_image, PortfolioUploader
+  mount_uploader :thumb_image, PortfolioUploader
+  mount_uploader :main_image, PortfolioUploader
 
-	def self.angular
-		where(subtitle: 'Angular')
-	end
+  def self.angular
+    where(subtitle: 'Angular')
+  end
 
-	def self.by_position
-	  order("position ASC")		
-	end
+  def self.by_position
+    order('position ASC')
+  end
 
-	scope :ruby_on_rails_portfolio_items, -> {where(subtitle: 'Angular')}		
+  scope :ruby_on_rails_portfolio_items, -> { where(subtitle: 'Angular') }
 end

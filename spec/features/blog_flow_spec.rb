@@ -1,11 +1,13 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+# require 'rails_helper'
 
 # feature 'Create, edit, delete blog flow by Admin:' do
-# 	context 'new blog' do
-# 		let!(:user) { FactoryBot.build(:user) }
+#   context 'new blog' do
+#     let!(:user) { User.create(email:'test@test.com', password:'1111111') }
 #     let(:blog) { FactoryBot.build(:blog) }
 
-# 		before do
+#     before do
 #       visit user_session_path
 
 #       fill_in 'Email',    with: user.email
@@ -21,7 +23,7 @@ require 'rails_helper'
 #         click_on 'Write a new blog'
 
 #         fill_in 'Title',    with: blog.title
-#         fill_in 'Comment', 		with: blog.body
+#         fill_in 'Comment',  with: blog.body
 
 #         click_on 'Submit'
 
