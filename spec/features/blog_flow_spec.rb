@@ -4,7 +4,7 @@
 
 # feature 'Create, edit, delete blog flow by Admin:' do
 #   context 'new blog' do
-#     let!(:user) { User.create(email:'test@test.com', password:'1111111') }
+#     let!(:user) { FactoryBot.create(:user) }
 #     let(:blog) { FactoryBot.build(:blog) }
 
 #     before do
@@ -20,7 +20,7 @@
 #       scenario 'adding a new blog' do
 #         visit blogs_path
 
-#         click_on 'Write a new blog'
+#         click_link 'Write a new blog'
 
 #         fill_in 'Title',    with: blog.title
 #         fill_in 'Comment',  with: blog.body
