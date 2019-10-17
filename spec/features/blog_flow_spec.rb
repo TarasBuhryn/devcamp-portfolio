@@ -1,34 +1,61 @@
 # frozen_string_literal: true
 
-# require 'rails_helper'
+require 'rails_helper'
 
-# feature 'Create, edit, delete blog flow by Admin:' do
-#   context 'new blog' do
-#     let!(:user) { FactoryBot.create(:user) }
-#     let(:blog) { FactoryBot.build(:blog) }
+feature 'Create, edit, delete blog flow by Admin:' do
+  let!(:user) { FactoryBot.create(:user, roles: 'site_admin') }
+  let!(:topic){ FactoryBot.create(:topic) }
+  let(:blog)  { FactoryBot.build(:blog) }
 
-#     before do
-#       visit user_session_path
+  before do
+    visit user_session_path
 
-#       fill_in 'Email',    with: user.email
-#       fill_in 'Password', with: user.password
+    fill_in 'Email',    with: user.email
+    fill_in 'Password', with: user.password
 
-#       click_link 'Sign up'
-#     end
+    click_on 'Log in'    
+  end
 
-#     context 'create blog with valid params' do
-#       scenario 'adding a new blog' do
-#         visit blogs_path
+  context 'create blog with valid params' do
+    scenario 'adding a new blog' do
+      visit new_blog_path 
 
-#         click_link 'Write a new blog'
+      fill_in 'Title',    with: blog.title
+      select topic.title
+      fill_in 'Comment',  with: blog.body
 
-#         fill_in 'Title',    with: blog.title
-#         fill_in 'Comment',  with: blog.body
+      click_on 'Submit'
 
-#         click_on 'Submit'
+      expect(page).to have_content blog.title
+    end
+  end
 
-#         expect(page).to have_content blog.name
-#       end
-#     end
-#   end
-# end
+  context 'update blog with valid params' do
+  	let!(:blog) { FactoryBot.create(:blog, topic_id: topic.id) }
+    scenario 'updating a new blog' do
+      visit blog_path(blog) 
+
+      click_on 'Edit'
+
+      fill_in 'Title',    with: blog.title
+      select topic.title
+      fill_in 'Comment',  with: blog.body
+
+      click_on 'Submit'
+
+      expect(page).to have_content blog.title
+    end
+
+    # scenario 'delete a blog', js: true do
+    #   visit blog_path(blog)
+
+    #   expect(page).to have_content blog.title
+
+    #   find(:css, 'i.fa.fa-trash').click
+
+    #   visit blog_path
+
+    #   expect(page).to have_no_content blog.title
+    # end
+  end
+end

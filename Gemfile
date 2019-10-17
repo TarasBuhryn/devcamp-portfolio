@@ -23,6 +23,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'rspec-rails', '~> 3.8'
   gem 'shoulda-matchers'
+  gem 'selenium-webdriver', '~> 3.142', '>= 3.142.6'
 end
 
 group :development do

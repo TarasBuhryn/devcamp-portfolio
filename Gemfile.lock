@@ -93,6 +93,7 @@ GEM
     carrierwave-aws (1.4.0)
       aws-sdk-s3 (~> 1.0)
       carrierwave (>= 0.7, < 2.1)
+    childprocess (3.0.0)
     cocoon (1.2.14)
     coderay (1.1.2)
     coffee-rails (4.2.2)
@@ -279,6 +280,7 @@ GEM
     ruby-vips (2.0.15)
       ffi (~> 1.9)
     ruby_dep (1.5.0)
+    rubyzip (2.0.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -298,6 +300,9 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    selenium-webdriver (3.142.6)
+      childprocess (>= 0.5, < 4.0)
+      rubyzip (>= 1.2.2)
     shoulda-matchers (4.1.2)
       activesupport (>= 4.2.0)
     simple_oauth (0.3.1)
@@ -387,6 +392,7 @@ DEPENDENCIES
   rspec-rails (~> 3.8)
   rubocop
   sass-rails (~> 5.0)
+  selenium-webdriver (~> 3.142, >= 3.142.6)
   shoulda-matchers
   spring
   spring-watcher-listen (~> 2.0.0)

@@ -10,9 +10,9 @@ feature 'User registration:' do
     scenario 'allows user to sign up' do
       visit new_user_registration_path
 
-      fill_in 'Email',    with: user.email
-      fill_in 'Name', with: user.name
-      fill_in 'Password', with: user.password
+      fill_in 'Email',                 with: user.email
+      fill_in 'Name',                  with: user.name
+      fill_in 'Password',              with: user.password
       fill_in 'Password confirmation', with: user.password
 
       click_button 'Sign up'
